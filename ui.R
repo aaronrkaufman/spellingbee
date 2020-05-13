@@ -3,7 +3,7 @@ fluidPage(
   verticalLayout(
     titlePanel("R Shiny Spelling Bee"),
     column(8,
-      plotOutput("plot1")
+      plotOutput("plot1", height=600, width=600)
     ),
     column(4,
       verbatimTextOutput("score_of_max"),
