@@ -12,10 +12,11 @@ fluidPage(
     textOutput("message"),
     hr(),
     wellPanel(
+      tags$head(tags$script(src = "enter_button.js")), 
 #      sliderInput("n", "Number of points", 10, 200,
 #                  value = 50, step = 10)
       textInput("guess", "Word", placeholder = "Your Guess Here"),
-      submitButton("Submit")#,
+      actionButton("goButton", "Submit")#,
       #br(),
       #br(),
       #actionButton("reshuffle", "Reshuffle")

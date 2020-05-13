@@ -23,7 +23,7 @@ function(input, output) {
   #)
   
   
-  observeEvent(input$guess,
+  observeEvent(input$goButton,
                {
                  
                  text_reactive$guess <- add_success_to_list(tolower(input$guess), words,
