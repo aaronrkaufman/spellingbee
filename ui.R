@@ -1,4 +1,5 @@
 fluidPage(
+  useShinyjs(),
   verticalLayout(
     titlePanel("R Shiny Spelling Bee"),
     column(8,
@@ -22,4 +23,4 @@ fluidPage(
   )
 )
 
-rsconnect::deployApp( appName = "SpellingBee", account="hmdc")
+#rsconnect::deployApp( appName = "SpellingBee", account="hmdc")

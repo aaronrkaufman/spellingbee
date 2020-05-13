@@ -2,6 +2,7 @@ source("helpers.R")
 load("word_list.RData")
 score <<- 0
 current_list <<- c()
+library(shinyjs)
 
 
 function(input, output) {
@@ -29,6 +30,7 @@ function(input, output) {
                                                             current_score = score, current_list = current_list)
                  text_reactive$score <- score
                  text_reactive$current_list <- current_list
+                 shinyjs::reset("guess")
                })
 
   
