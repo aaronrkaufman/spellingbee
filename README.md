@@ -1,2 +1,2 @@
 # spellingbee
-An R Shiny clone of the New York Times' Spelling Bee puzzle
+An R Shiny implementation of the New York Times' Spelling Bee puzzle
