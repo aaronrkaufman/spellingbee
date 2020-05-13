@@ -1,12 +1,9 @@
-source("helpers.R")
-load("word_list.RData")
-score <<- 0
-current_list <<- c()
-library(shinyjs)
-
-
 function(input, output) {
-  # Initialize values
+  source("helpers.R")
+  load("word_list.RData")
+  library(shinyjs)
+  
+    # Initialize values
   today_word = pick_today_word(word_list)
   words = find_all_words(today_word, word_list)
   max_score = calculate_max_score(words)
@@ -22,17 +19,22 @@ function(input, output) {
   #  plot = plot_hex(today_word)
   #)
   
-  
+
   observeEvent(input$goButton,
-               {
-                 
-                 text_reactive$guess <- add_success_to_list(tolower(input$guess), words,
-                                                            current_score = score, current_list = current_list)
-                 text_reactive$score <- score
-                 text_reactive$current_list <- current_list
+              {
+
+                if(tolower(input$guess) %in% text_reactive$current_list){
+                  text_reactive$guess <- "You already found that one!"
+                } else if(tolower(input$guess) %in% words){
+                  text_reactive$current_list <- sort(c(tolower(input$guess), text_reactive$current_list))
+                  pointval = calculate_point_total(tolower(input$guess))
+                  text_reactive$score <- text_reactive$score + pointval
+                  text_reactive$guess = paste0("Success! +", pointval, " points")
+                } else {
+                  text_reactive$guess = "Not a valid word"
+                }                 
                  shinyjs::reset("guess")
                })
-
   
   
   output$plot1 <- renderPlot({
