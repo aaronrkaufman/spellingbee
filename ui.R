@@ -10,6 +10,7 @@ fluidPage(
       h5("Your word must be at least 4 letters long, and contain the center letter."),
       textInput("guess", "Enter Words Here", placeholder = "Your Guess Here"),
       actionButton("goButton", "Submit"),
+      bookmarkButton(label = "Save progress"),
       br(),
       br(),
       textOutput("message"),
