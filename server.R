@@ -20,6 +20,20 @@ function(input, output) {
   #)
   
 
+  
+  # Save extra values in state$values when we bookmark
+  onBookmark(function(state) {
+    state$values$score <- text_reactive$score
+    state$values$current_list <- text_reactive$current_list
+  })
+  
+  # Read values from state$values when we restore
+  onRestore(function(state) {
+    text_reactive$current_list <- state$values$current_list
+    text_reactive$score <- state$values$score
+  })
+  
+  
   observeEvent(input$goButton,
               {
 
