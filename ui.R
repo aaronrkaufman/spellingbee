@@ -1,4 +1,4 @@
-fluidPage(
+function(request) {fluidPage(
   shinyjs::useShinyjs(),
   titlePanel("R Shiny Spelling Bee"),
   sidebarLayout(
@@ -25,5 +25,5 @@ fluidPage(
       #actionButton("reshuffle", "Reshuffle")
   )
 )
-
+}
 #rsconnect::deployApp( appName = "Spellingbee", account="hmdc")
